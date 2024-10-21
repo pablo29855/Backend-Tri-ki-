@@ -7,12 +7,14 @@ const express_1 = __importDefault(require("express"));
 const node_http_1 = require("node:http");
 const socket_io_1 = require("socket.io");
 const sala_1 = require("./classes/sala");
+const dotenv_1 = require("dotenv");
 const app = (0, express_1.default)();
 const server = (0, node_http_1.createServer)(app);
 const io = new socket_io_1.Server(server, { cors: { origin: "*" } });
 global.io = io;
-server.listen(3000, () => {
-    //console.log("Server escuchando en el puerto 3000");
+(0, dotenv_1.config)();
+server.listen(process.env.PORT || 3000, () => {
+    console.log("Server escuchando en el puerto ", process.env.PORT);
 });
 let salas = [];
 let idProximaSala = 0;
