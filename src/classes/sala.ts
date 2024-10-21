@@ -80,7 +80,7 @@ export class Sala{
 
     verificarVictoria():posicionGanadora | "EMPATE" |undefined{
         //verificar lineas horizontales
-        for(let i = 0; i < 3; i+=3){
+        for(let i = 0; i < 9; i+=3){
             if(this.tablero[i]!== "" && this.tablero[i] === this.tablero[i+1] && this.tablero[i] === this.tablero[i+2]){
                 return [i as PosicionTablero,i+1 as PosicionTablero,i+2 as PosicionTablero];
             }
